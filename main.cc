@@ -5,8 +5,6 @@
 #include <iostream>
 #include <thread>
 
-using namespace httpserver;
-
 class HttpHandler : public httpserver::http_resource {
  public:
   const std::shared_ptr<httpserver::http_response> render(
