@@ -2,6 +2,8 @@
 
 Experiment on how quickly Cloud Run instances can scale up on GCP. We deliberately specify `--concurrency=1`, so there's only one request running on an instance at a time.
 
+Docker image starting times should be as small as possible, given that the image only contains a statically linked executable.
+
 ## Build and deploy
 
 ```bash
