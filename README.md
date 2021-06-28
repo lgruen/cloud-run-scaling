@@ -37,6 +37,9 @@ grep -h Received timing_*.txt | sort > timing.txt
 
 Ideally, the first and last entry of `timing.txt` wouldn't be far apart timewise.
 
+
+### `australia-southeast1`
+
 In practice, `curl` needs to retry a lot due to _"The request was aborted because there was no available instance"_ errors, e.g. leading to this first and last entry:
 
 ```text
@@ -46,3 +49,8 @@ Received at: Sun Jun 27 07:26:16 2021
 ```
 
 Every request nominally takes 10s, but due to the upscaling delay, request processing start times get distributed over a 25s window. I.e. overall processing takes 35s, whereas with instant upscaling it would only take 10s.
+
+### `us-central1`
+
+Interestingly, the same experiment with 1000 requests only takes 12s in this `us-central1`, compared to 25s in `australia-southeast1`. 200 requests get spread out over 4s.
+
